@@ -1,0 +1,17 @@
+/log
+/bin
+/target
+/.settings
+/.project
+/.classpath
+/.svn
+/*.log
+/*.log.*
+/.externalToolBuilders
+/.settings/*
+
+.idea
+*.iml
+*.mymetadata
+.myeclipse
+.externalToolBuilders
