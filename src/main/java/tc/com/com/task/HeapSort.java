@@ -1,5 +1,7 @@
 package tc.com.com.task;
 
+import tc.com.common.CommonUtil;
+
 /**
  * Created by bjtanchuan on 2018/3/8.
  */
@@ -18,7 +20,7 @@ public class HeapSort {
 
         // 排序
         for(int n = arr2Sort.length - 1 ; n > 0; n--){
-            swap(arr2Sort, 0, n);
+            CommonUtil.swap(arr2Sort, 0, n);
             adjustHeap(arr2Sort, 0, n);
         }
 
@@ -38,19 +40,13 @@ public class HeapSort {
                 next++;
             }
             if(arr2Sort[next] > temp){
-                swap(arr2Sort, k, next);
+                CommonUtil.swap(arr2Sort, k, next);
                 k = next;
                 next = 2* next + 1;
             } else {
                 break;
             }
         }
-    }
-
-    private static void swap(int[] arr2Sort, int k, int next) {
-        int t = arr2Sort[k];
-        arr2Sort[k] = arr2Sort[next];
-        arr2Sort[next] = t;
     }
 
     public static void main(String[] args) {
