@@ -15,7 +15,7 @@ public class CommonUtil {
     public static int min(int[] arr){
         int min = arr[0];
         for(int ele : arr){
-            if(ele > min){
+            if(ele < min){
                 min = ele;
             }
         }
