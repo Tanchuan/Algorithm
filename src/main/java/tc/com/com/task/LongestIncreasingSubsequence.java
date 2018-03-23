@@ -35,7 +35,7 @@ public class LongestIncreasingSubsequence {
             if(lenOfSeq[i] > maxLen){
                 maxLen = lenOfSeq[i];
                 minMaxV[lenOfSeq[i]] = nums[i];
-            } else if (nums[i] > minMaxV[j] && nums[i] < minMaxV[j + 1]){
+            } else if (nums[i] < minMaxV[j + 1]){
                 minMaxV[j + 1] = nums[i];
             }
         }
