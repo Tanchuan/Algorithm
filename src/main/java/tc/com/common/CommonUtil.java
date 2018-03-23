@@ -12,5 +12,15 @@ public class CommonUtil {
         arr2Sort[j] = t;
     }
 
+    public static int min(int[] arr){
+        int min = arr[0];
+        for(int ele : arr){
+            if(ele > min){
+                min = ele;
+            }
+        }
+        return min;
+    }
+
 
 }
