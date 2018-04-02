@@ -2,6 +2,7 @@ package tc.com.com.task.tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 二叉查找树
@@ -190,7 +191,7 @@ public class BinarySearchTree {
         node.n = (node.left != null ? node.left.n : 0) + (node.right != null ? node.right.n : 0) + 1;
         return node;
     }
-    
+
 
     public void delete(int val){
         if(root.value == null){
@@ -226,6 +227,9 @@ public class BinarySearchTree {
 
 
     public void preOrderTraverse(){
+        if(root.value == null){
+            return;
+        }
         preOrderTraverse(root);
         System.out.println();
     }
@@ -239,6 +243,9 @@ public class BinarySearchTree {
     }
 
     public void midOrderTraverse(){
+        if(root.value == null){
+            return;
+        }
         midOrderTraverse(root);
         System.out.println();
     }
@@ -249,6 +256,32 @@ public class BinarySearchTree {
             System.out.print(" " + node.value + " ");
             midOrderTraverse(node.right);
         }
+    }
+
+    public void postOrderTraverse(){
+        if(root.value == null){
+            return;
+        }
+        Stack<Node<Integer>> stack = new Stack<>();
+        stack.push(root);
+        Node<Integer> nodeLastVisited = null;
+        while(!stack.isEmpty()){
+            Node<Integer> node = stack.peek();
+            if((node.left == null && node.right == null)
+                    || (nodeLastVisited != null && (nodeLastVisited == node.left|| nodeLastVisited == node.right))){
+                System.out.print(" " + node.value + " ");
+                stack.pop();
+                nodeLastVisited = node;
+                continue;
+            }
+            if(node.right != null){
+                stack.push(node.right);
+            }
+            if(node.left != null){
+                stack.push(node.left);
+            }
+        }
+        System.out.println("");
     }
 
 
@@ -277,9 +310,11 @@ public class BinarySearchTree {
         System.out.println(bst.min().value);
         bst.preOrderTraverse();
         bst.midOrderTraverse();
+        bst.postOrderTraverse();
         bst.delete(3);
         bst.preOrderTraverse();
         bst.midOrderTraverse();
+        bst.postOrderTraverse();
     }
 
 }
