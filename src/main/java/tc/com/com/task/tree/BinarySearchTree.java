@@ -242,11 +242,53 @@ public class BinarySearchTree {
         }
     }
 
+    public void preOrderTraverseNonRecursive(){
+        if(root.value == null){
+            return;
+        }
+        Stack<Node<Integer>> stack = new Stack<>();
+        stack.push((root));
+        while(!stack.isEmpty()){
+            Node<Integer> node = stack.pop();
+            System.out.print(" " + node.value + " ");
+            if(node.right != null){
+                stack.push(node.right);
+            }
+            if(node.left != null){
+                stack.push(node.left);
+            }
+        }
+        System.out.println("");
+    }
+
+
     public void midOrderTraverse(){
         if(root.value == null){
             return;
         }
         midOrderTraverse(root);
+        System.out.println();
+    }
+
+
+    public void midOrderTraverseNonRecursive(){
+        if(root.value == null){
+            return;
+        }
+        Stack<Node<Integer>> stack = new Stack<>();
+        Node<Integer> node = root;
+        while(node != null || !stack.isEmpty()){
+            while(node != null){
+                stack.push(node);
+                node = node.left;
+            }
+            if(!stack.isEmpty()){
+                node = stack.pop();
+                System.out.print(" " + node.value + " ");
+                node = node.right;
+            }
+
+        }
         System.out.println();
     }
 
@@ -258,7 +300,7 @@ public class BinarySearchTree {
         }
     }
 
-    public void postOrderTraverse(){
+    public void postOrderTraverseNonRecursive(){
         if(root.value == null){
             return;
         }
@@ -309,12 +351,12 @@ public class BinarySearchTree {
         System.out.println(bst.max().value);
         System.out.println(bst.min().value);
         bst.preOrderTraverse();
+        bst.preOrderTraverseNonRecursive();
         bst.midOrderTraverse();
-        bst.postOrderTraverse();
-        bst.delete(3);
-        bst.preOrderTraverse();
-        bst.midOrderTraverse();
-        bst.postOrderTraverse();
+        bst.midOrderTraverseNonRecursive();
+
+        bst.postOrderTraverseNonRecursive();
+
     }
 
 }
