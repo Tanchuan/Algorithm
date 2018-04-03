@@ -41,6 +41,15 @@ public class AddSymbol2ArraySumK {
         }
     }
 
+    public int[] getResult(){
+
+        if(generateSymbol(nums.length - 1, M)){
+            return symbols;
+        } else {
+            return null;
+        }
+    }
+
     public int[] getSymbols() {
         return symbols;
     }
@@ -66,10 +75,14 @@ public class AddSymbol2ArraySumK {
     }
 
     public static void main(String[] args) {
-        AddSymbol2ArraySumK sumK = new AddSymbol2ArraySumK(new int[]{1, 2, 3}, 4);
-        sumK.generateSymbol(2, 0);
-        for (int ele : sumK.getSymbols()) {
-            System.out.print(" " + ele + " ");
+        AddSymbol2ArraySumK sumK = new AddSymbol2ArraySumK(new int[]{1, 2, 3}, 8);
+        int[] symbols = sumK.getResult();
+        if(null == symbols){
+            System.out.println("搜索失败");
+        } else {
+            for (int ele : symbols) {
+                System.out.print(" " + ele + " ");
+            }
         }
     }
 
