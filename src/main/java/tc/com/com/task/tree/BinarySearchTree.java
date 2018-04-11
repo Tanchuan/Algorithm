@@ -1,7 +1,9 @@
 package tc.com.com.task.tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -326,6 +328,24 @@ public class BinarySearchTree {
         System.out.println("");
     }
 
+    public void levelOrderTraverse(){
+        if(root.value == null){
+            return;
+        }
+        Queue<Node<Integer>> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            Node<Integer> node = queue.poll();
+            System.out.print(" " + node.value + " ");
+            if(node.left != null){
+                queue.offer(node.left);
+            }
+            if(node.right != null){
+                queue.offer(node.right);
+            }
+        }
+
+    }
 
     public int height(){
         if(root.value == null){
@@ -350,6 +370,7 @@ public class BinarySearchTree {
         System.out.println(bst.ceil(3));
         System.out.println(bst.max().value);
         System.out.println(bst.min().value);
+        bst.levelOrderTraverse();
         bst.preOrderTraverse();
         bst.preOrderTraverseNonRecursive();
         bst.midOrderTraverse();
