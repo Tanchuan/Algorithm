@@ -10,7 +10,7 @@ public class ChararcterContain {
     public static boolean chararcterContain(String a, String b){
         char[] aChars = a.toCharArray();
         char[] bChars = b.toCharArray();
-        int hash = 0;
+        long hash = 0;
         for(char c : aChars){
             hash |= (1 << c - 'A');
         }
