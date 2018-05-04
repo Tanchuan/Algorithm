@@ -26,9 +26,28 @@ public class QuickSort {
         return j;
     }
 
+    public static int pattition2(int[] arr2Sort, int lo, int hi) {
+        int temp = arr2Sort[hi];
+        int i = lo - 1;
+        int j = lo;
+        while (j < hi) {
+            while(arr2Sort[j] > temp && j < hi) j++;
+            if(j < hi){
+                ++i;
+                CommonUtil.swap(arr2Sort, i, j);
+                j++;
+            }
+        }
+        ++i;
+        if (j > lo) {
+            CommonUtil.swap(arr2Sort, i, hi);
+        }
+        return i;
+    }
+
     public static void quickSort(int[] arr2Sort, int lo, int hi) {
         if (lo < hi) {
-            int midVal = pattition(arr2Sort, lo, hi);
+            int midVal = pattition2(arr2Sort, lo, hi);
             quickSort(arr2Sort, lo, midVal - 1);
             quickSort(arr2Sort, midVal + 1, hi);
         }
