@@ -1,4 +1,4 @@
-package tc.com.com.task;
+package tc.com.com.task.array;
 
 import java.util.HashMap;
 import java.util.Map;

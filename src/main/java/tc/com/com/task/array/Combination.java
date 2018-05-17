@@ -1,4 +1,4 @@
-package tc.com.com.task;
+package tc.com.com.task.array;
 
 /**
  * Created by bjtanchuan on 2018/3/29.
