@@ -31,17 +31,13 @@ public class QuickSort {
         int i = lo - 1;
         int j = lo;
         while (j < hi) {
-            while(arr2Sort[j] > temp && j < hi) j++;
-            if(j < hi){
-                ++i;
-                CommonUtil.swap(arr2Sort, i, j);
-                j++;
+            if(arr2Sort[j] < temp){
+                CommonUtil.swap(arr2Sort, ++i, j);
             }
+            j++;
         }
         ++i;
-        if (j > lo) {
-            CommonUtil.swap(arr2Sort, i, hi);
-        }
+        CommonUtil.swap(arr2Sort, i, hi);
         return i;
     }
 
