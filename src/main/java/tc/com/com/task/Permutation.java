@@ -14,10 +14,7 @@ public class Permutation {
 
     public static void printPermutation(char[] arr, int from, int to){
         if(from == to){
-            for (char c : arr) {
-                System.out.print(" " + c);
-            }
-            System.out.println("");
+            System.out.println(String.valueOf(arr));
         }
         for(int i = from; i <= to; i++){
             CommonUtil.swap(arr, from, i);
