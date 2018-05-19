@@ -108,17 +108,29 @@ public class MergeBinaryTree {
     public void visitLevelOrder(TreeNode node) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(node);
+        int current = 1;
+        int next = 0;
+        int height = 0;
         while (!queue.isEmpty()) {
             TreeNode treeNode = queue.poll();
             System.out.print(treeNode.val + " ");
             if (treeNode.left != null) {
                 queue.offer(treeNode.left);
+                next++;
             }
             if (treeNode.right != null) {
                 queue.offer(treeNode.right);
+                next++;
+            }
+            current--;
+            if(current==0){
+                current=next;
+                next=0;
+                height++;
             }
         }
         System.out.print(" end \n");
+        System.out.println("height =" + height);
 
     }
 
